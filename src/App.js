@@ -35,6 +35,18 @@ const DUMMY_EXPENSES = [
     amount: 400,
     date: new Date(2022, 7, 1),
   },
+  {
+    id: "e6",
+    title: "Flight to Italy",
+    amount: 2000,
+    date: new Date(2021, 6, 1),
+  },
+  {
+    id: "e7",
+    title: "Flight to Korea",
+    amount: 2000,
+    date: new Date(2023, 0, 1),
+  },
 ];
 
 const App = () => {
