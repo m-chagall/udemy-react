@@ -19,7 +19,7 @@ const App = () => {
     });
   };
 
-  /* ----------  Goals ---------- */
+  /* ----------  Goal Tracker ---------- */
   const [goals, setGoals] = useState(DUMMY_GOALS);
 
   const addGoalHandler = (enteredText) => {
@@ -39,9 +39,11 @@ const App = () => {
 
   return (
     <div className="App">
+      <h1>Goal Tracker</h1>
       <NewGoal onAddGoal={addGoalHandler} />
       <Goals items={goals} onDeleteItem={deleteItemHandler} />
-
+      <hr />
+      <h1>Expense Tracker</h1>
       <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
