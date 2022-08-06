@@ -5,7 +5,6 @@ import Goals from "./Goals/Goals";
 import NewGoal from "./NewGoal/NewGoal";
 
 const GoalTracker = () => {
-  /* ----------  Goal Tracker ---------- */
   const [goals, setGoals] = useState(DUMMY_GOALS);
 
   const addGoalHandler = (enteredText) => {
