@@ -1,11 +1,13 @@
 import { useState } from "react";
 import "./App.css";
+
 import DUMMY_EXPENSES from "./components/ExpenseTracker/Data/DummyExpenses";
 import Expenses from "./components/ExpenseTracker/Expenses/Expenses";
 import NewExpense from "./components/ExpenseTracker/NewExpense/NewExpense";
 
-import CourseGoalList from "./components/CourseGoals/CourseGoalList/CourseGoalList";
-import CourseInput from "./components/CourseGoals/CourseInput/CourseInput";
+import DUMMY_GOALS from "./components/GoalTracker/Data/DummyGoals";
+import Goals from "./components/GoalTracker/Goals/Goals";
+import NewGoal from "./components/GoalTracker/NewGoal/NewGoal";
 
 const App = () => {
   /* ---------- Expense Tracker ---------- */
@@ -17,14 +19,11 @@ const App = () => {
     });
   };
 
-  /* ---------- Course Goals ---------- */
-  const [courseGoals, setCourseGoals] = useState([
-    { text: "Do all exercises!", id: "g1" },
-    { text: "Finish the course!", id: "g2" },
-  ]);
+  /* ----------  Goals ---------- */
+  const [goals, setGoals] = useState(DUMMY_GOALS);
 
   const addGoalHandler = (enteredText) => {
-    setCourseGoals((prevGoals) => {
+    setGoals((prevGoals) => {
       const updatedGoals = [...prevGoals];
       updatedGoals.unshift({ text: enteredText, id: Math.random().toString() });
       return updatedGoals;
@@ -32,37 +31,16 @@ const App = () => {
   };
 
   const deleteItemHandler = (goalId) => {
-    setCourseGoals((prevGoals) => {
+    setGoals((prevGoals) => {
       const updatedGoals = prevGoals.filter((goal) => goal.id !== goalId);
       return updatedGoals;
     });
   };
 
-  let content = (
-    <p style={{ textAlign: "center" }}>No goals found. Maybe add one?</p>
-  );
-
-  if (courseGoals.length > 0) {
-    content = (
-      <CourseGoalList items={courseGoals} onDeleteItem={deleteItemHandler} />
-    );
-  }
-
   return (
     <div className="App">
-      <section id="goal-form">
-        <CourseInput onAddGoal={addGoalHandler} />
-      </section>
-      <section id="goals">
-        {content}
-        {/* {courseGoals.length > 0 && (
-          <CourseGoalList
-            items={courseGoals}
-            onDeleteItem={deleteItemHandler}
-          />
-        ) // <p style={{ textAlign: 'center' }}>No goals found. Maybe add one?</p>
-        } */}
-      </section>
+      <NewGoal onAddGoal={addGoalHandler} />
+      <Goals items={goals} onDeleteItem={deleteItemHandler} />
 
       <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
