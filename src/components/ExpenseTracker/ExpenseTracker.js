@@ -5,7 +5,6 @@ import Expenses from "./Expenses/Expenses";
 import NewExpense from "./NewExpense/NewExpense";
 
 const ExpenseTracker = () => {
-  /* ---------- Expense Tracker ---------- */
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
 
   const addExpenseHandler = (expense) => {
