@@ -4,7 +4,7 @@ import Card from "../UI/Card/Card";
 import Button from "../UI/Button/Button";
 import Input from "../UI/Input/Input";
 
-import AuthContext from "../store/auth-context";
+import AuthContext from "../../store/auth-context";
 
 import classes from "./Login.module.css";
 
